@@ -45,22 +45,22 @@ ts <- scale(ts)
 du <- scale(dm)
 tu <- scale(tu)
 
-for (class in unique(sce.zeisel$level1class)) {
-  print(class)
-  vars_ds <- colVars(ds[sce.zeisel$level1class == class, ])
-  vars_ts <- colVars(ts[sce.zeisel$level1class == class, ])
-  print(vars_ds)
-  print(vars_ts)
+# for (class in unique(sce.zeisel$level1class)) {
+#   print(class)
+#   vars_ds <- colVars(ds[sce.zeisel$level1class == class, ])
+#   vars_ts <- colVars(ts[sce.zeisel$level1class == class, ])
+#   print(vars_ds)
+#   print(vars_ts)
 
-  vars_du <- colVars(du[sce.zeisel$level1class == class, ])
-  vars_tu <- colVars(tu[sce.zeisel$level1class == class, ])
+#   vars_du <- colVars(du[sce.zeisel$level1class == class, ])
+#   vars_tu <- colVars(tu[sce.zeisel$level1class == class, ])
 
-  print(vars_du)
-  print(vars_tu)
-}
+#   print(vars_du)
+#   print(vars_tu)
+# }
 
-vars_ds <- colVars(ds[sce.zeisel$level1class == "astrocytes_ependymal", ])
-vars_ts <- colVars(ts[sce.zeisel$level1class == "astrocytes_ependymal", ])
+vars_ds <- colVars(ds[sce.zeisel$level1class == "endothelial-mural", ])
+vars_ts <- colVars(ts[sce.zeisel$level1class == "endothelial-mural", ])
 print(vars_ds)
 #> [1] 0.5667786 0.2703578
 print(vars_ts)
@@ -68,8 +68,8 @@ print(vars_ts)
 #> 0.5781887 0.1228506
 
 
-vars_du <- colVars(du[sce.zeisel$level1class == "astrocytes_ependymal", ])
-vars_tu <- colVars(tu[sce.zeisel$level1class == "astrocytes_ependymal", ])
+vars_du <- colVars(du[sce.zeisel$level1class == "endothelial-mural", ])
+vars_tu <- colVars(tu[sce.zeisel$level1class == "endothelial-mural", ])
 
 #> Error: mean(vars_du) > mean(vars_tu) is not TRUE
 print(vars_du)
