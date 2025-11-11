@@ -10,7 +10,7 @@ on:
 
 jobs:
     run-script:
-        runs-on: ubuntu-latest
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
