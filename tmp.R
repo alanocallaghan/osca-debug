@@ -47,19 +47,21 @@ tu <- scale(tu)
 
 vars_ds <- colVars(ds[sce.zeisel$level1class == "astrocytes_ependymal", ])
 vars_ts <- colVars(ts[sce.zeisel$level1class == "astrocytes_ependymal", ])
-stopifnot(mean(vars_ds) > mean(vars_ts))
 print(vars_ds)
 #> [1] 0.5667786 0.2703578
 print(vars_ts)
 #>     TSNE1     TSNE2 
 #> 0.5781887 0.1228506
 
+
 vars_du <- colVars(du[sce.zeisel$level1class == "astrocytes_ependymal", ])
 vars_tu <- colVars(tu[sce.zeisel$level1class == "astrocytes_ependymal", ])
-stopifnot(mean(vars_du) > mean(vars_tu))
+
 #> Error: mean(vars_du) > mean(vars_tu) is not TRUE
 print(vars_du)
 #> [1] 0.1654369 0.2237998
 print(vars_tu)
 #>     UMAP1     UMAP2 
 #> 0.2775908 0.5723159
+stopifnot(mean(vars_ds) > mean(vars_ts))
+stopifnot(mean(vars_du) > mean(vars_tu))
