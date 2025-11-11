@@ -45,6 +45,20 @@ ts <- scale(ts)
 du <- scale(dm)
 tu <- scale(tu)
 
+for (class in unique(sce.zeisel$level1class)) {
+  print(class)
+  vars_ds <- colVars(ds[sce.zeisel$level1class == class, ])
+  vars_ts <- colVars(ts[sce.zeisel$level1class == class, ])
+  print(vars_ds)
+  print(vars_ts)
+
+  vars_du <- colVars(du[sce.zeisel$level1class == class, ])
+  vars_tu <- colVars(tu[sce.zeisel$level1class == class, ])
+
+  print(vars_du)
+  print(vars_tu)
+}
+
 vars_ds <- colVars(ds[sce.zeisel$level1class == "astrocytes_ependymal", ])
 vars_ts <- colVars(ts[sce.zeisel$level1class == "astrocytes_ependymal", ])
 print(vars_ds)
