@@ -31,9 +31,9 @@ sce.zeisel <- fixedPCA(sce.zeisel, subset.row=top.zeisel)
 
 set.seed(123)
 library(densvis)
-dt <- densne(reducedDim(sce.zeisel, "PCA"), dens_frac = 0.4, dens_lambda = 0.4)
+dt <- densne(reducedDim(sce.zeisel, "PCA"), dens_frac = 0.5, dens_lambda = 0.5)
 reducedDim(sce.zeisel, "dens-SNE") <- dt
-dm <- densmap(reducedDim(sce.zeisel, "PCA"), dens_frac = 0.4, dens_lambda = 0.4)
+dm <- densmap(reducedDim(sce.zeisel, "PCA"), dens_frac = 0.5, dens_lambda = 0.5)
 reducedDim(sce.zeisel, "densMAP") <- dm
 sce.zeisel <- runUMAP(sce.zeisel) # for comparison
 sce.zeisel <- runTSNE(sce.zeisel) # for comparison
