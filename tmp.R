@@ -45,19 +45,22 @@ ts <- scale(ts)
 du <- scale(dm)
 tu <- scale(tu)
 
-# for (class in unique(sce.zeisel$level1class)) {
-#   print(class)
-#   vars_ds <- colVars(ds[sce.zeisel$level1class == class, ])
-#   vars_ts <- colVars(ts[sce.zeisel$level1class == class, ])
-#   print(vars_ds)
-#   print(vars_ts)
+for (class in unique(sce.zeisel$level1class)) {
+  print(class)
+  vars_ds <- colVars(ds[sce.zeisel$level1class == class, ])
+  vars_ts <- colVars(ts[sce.zeisel$level1class == class, ])
+  print(vars_ds)
+  print(vars_ts)
 
-#   vars_du <- colVars(du[sce.zeisel$level1class == class, ])
-#   vars_tu <- colVars(tu[sce.zeisel$level1class == class, ])
+  vars_du <- colVars(du[sce.zeisel$level1class == class, ])
+  vars_tu <- colVars(tu[sce.zeisel$level1class == class, ])
 
-#   print(vars_du)
-#   print(vars_tu)
-# }
+  print(vars_du)
+  print(vars_tu)
+  if (mean(vars_ds) > mean(vars_ts) && mean(vars_du) > mean(vars_tu)) {
+    print(paste0(class, " is suitable"))
+  }
+}
 
 vars_ds <- colVars(ds[sce.zeisel$level1class == "endothelial-mural", ])
 vars_ts <- colVars(ts[sce.zeisel$level1class == "endothelial-mural", ])
